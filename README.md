@@ -76,8 +76,8 @@ src/
 Home Page
 ![Home](/public/assets/png/home-sample.png)
 Game-Details-Modal
-![Game-Details](public\assets\png\game-details-modal.png)
-![Game-Details](public\assets\png\game-details-modal-2.png)
+![Game-Details](public/assets/png/game-details-modal.png)
+![Game-Details](public/assets/png/game-details-modal-2.png)
 
 ---
 

@@ -1,0 +1,71 @@
+/* src/app.css */
+
+/* Game Card Specific Styles */
+.game-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card-body {
+    padding: 15px;
+}
+
+.game-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.game-card-release,
+.game-card-rating {
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Dark Mode Styles for Cards */
+@media (prefers-color-scheme: dark) {
+    .game-card {
+        background-color: #2a2a2a;
+        border: 1px solid #444;
+    }
+
+    .game-card-title {
+        color: #e0e0e0;
+    }
+
+    .game-card-release,
+    .game-card-rating {
+        color: #aaa;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-card {
+        width: 100%;
+    }
+
+    .game-card img {
+        height: 150px;
+    }
+}
+
+.game-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}

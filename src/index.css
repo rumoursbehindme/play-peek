@@ -1,165 +1,47 @@
+/* global.css */
+
+/* Root variables for dark mode and font family */
 :root {
-    --font-base: 'Poppins', sans-serif;
+  --font-base: 'Poppins', sans-serif;
+  --primary-color: #007bff;
+  --dark-bg-color: #121212;
+  --light-bg-color: #f9f9f9;
+  --text-color-light: #222;
+  --text-color-dark: #eee;
 }
 
+/* Global body styling */
 body {
-    font-family: var(--font-base);
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #222;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-base);
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg-color);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark-mode {
-    background-color: #121212;
-    color: #eee;
+/* Dark mode styling */
+body.dark-mode {
+  background-color: var(--dark-bg-color);
+  color: var(--text-color-dark);
 }
 
-
-/* Smooth transitions for elements when switching between themes */
+/* Smooth transitions for elements */
 * {
-    box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-/* Button styles */
 button {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
-    opacity: 0.8;
-}
-
-/* Light Mode Theme Button */
-body:not(.dark-mode) button {
-    background-color: #007bff;
-    color: #fff;
-}
-
-/* Dark Mode Theme Button */
-body.dark-mode button {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-}
-
-/* Game Card Styles */
-.card {
-    background-color: #ffffff;
-    color: #333;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card .card-body {
-    padding: 15px;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Mode Game Card */
-body.dark-mode .card {
-    background-color: #2a2a2a;
-    color: #f0f0f0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .card .card-body {
-    background-color: #333;
-}
-
-/* Game Card Text */
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #333;
-}
-
-body.dark-mode .card-title {
-    color: #e0e0e0;
-}
-
-.card-text {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-body.dark-mode .card-text {
-    color: #bbb;
-}
-
-/* Container styles for page layout */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-}
-
-body.dark-mode h1 {
-    color: #e0e0e0;
-}
-
-/* Additional styling for responsiveness */
-@media (max-width: 768px) {
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-/* Base Navbar Style */
-.custom-navbar {
-    background-color: #ffffff;
-    color: #222;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-navbar .navbar-brand {
-    color: #222;
-    font-weight: 700;
-}
-
-/* Dark Mode Navbar Style */
-body.dark-mode .custom-navbar {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-}
-
-body.dark-mode .custom-navbar .navbar-brand {
-    color: #f1f1f1;
+  opacity: 0.8;
 }

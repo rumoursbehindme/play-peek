@@ -74,7 +74,7 @@ src/
 
 ## 📷 Screenshots
 
-> _(Add screenshots or a demo GIF here if you'd like)_
+![Home](/public/assets/png/home-sample.png)
 
 ---
 

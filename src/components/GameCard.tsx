@@ -1,9 +1,10 @@
 import React from 'react';
 import { IGame } from '../types/game';
+import './styles/GameCard.css'; // Importing GameCard-specific CSS
 
 const GameCard: React.FC<{ game: IGame }> = ({ game }) => {
     return (
-        <div className="card border-0 shadow-sm" style={{ width: '18rem', borderRadius: '16px', overflow: 'hidden' }}>
+        <div className="card border-0 shadow-sm game-card">
             <img src={game.background_image} className="card-img-top" alt={game.name} />
             <div className="card-body">
                 <h5 className="card-title fw-semibold">{game.name}</h5>

@@ -1,23 +1,36 @@
-/* Global body styling */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-    /* Light mode background */
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
+:root {
+    --font-base: 'Poppins', sans-serif;
 }
 
-body.dark-mode {
-    background-color: #181818;
-    /* Dark mode background */
-    color: #d1d1d1;
+body {
+    font-family: var(--font-base);
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #222;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
+
 
 /* Smooth transitions for elements when switching between themes */
 * {
+    box-sizing: border-box;
     transition: all 0.3s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 8px;
 }
 
 /* Button styles */

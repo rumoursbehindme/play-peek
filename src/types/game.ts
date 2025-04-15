@@ -35,7 +35,7 @@ export interface IGame {
   playtime: number;
   suggestions_count: number;
   updated: string;
-  user_game: any; // Can be refined if you know the structure
+  user_game: unknown; // Can be refined if you know the structure
   reviews_count: number;
   saturated_color: string;
   dominant_color: string;

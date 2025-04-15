@@ -12,8 +12,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">Game Details</h1>
-      <div className="d-flex flex-wrap gap-4">
+      <h1 className="mb-4 text-center">Game Details</h1>
+      <div className="game-grid d-flex flex-wrap gap-4 justify-content-center">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}

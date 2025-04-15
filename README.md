@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎮 PlayPeek
 
-Currently, two official plugins are available:
+**PlayPeek** is a sleek, responsive web app that shows game details using the RAWG Video Games Database API.  
+Built with **React + TypeScript + Bootstrap + Vite** — no backend needed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Browse a list of popular games
+- View game name, release date, rating, and background image
+- Responsive layout using Bootstrap
+- Clean and type-safe React code with TypeScript
+- Environment-based API key for secure access
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 📦 Tech Stack
+
+- **Frontend:** React, TypeScript
+- **Styling:** Bootstrap
+- **Build Tool:** Vite
+- **API:** [RAWG Video Games Database](https://rawg.io/apidocs)
+
+---
+
+## 🛠️ Setup
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/playpeek.git
+cd playpeek
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+yarn
 ```
+
+### 3. Add `.env` file
+
+Create a `.env` file in the root:
+
+```env
+VITE_RAWG_API_KEY=your_rawg_api_key_here
+```
+
+Get a free key from [RAWG.io](https://rawg.io/apidocs).
+
+### 4. Start the dev server
+
+```bash
+yarn dev
+```
+
+---
+
+## 📁 Folder Structure
+
+```
+src/
+├── components/        # Reusable UI components (e.g., GameCard)
+├── pages/             # Page-level components (e.g., Home)
+├── services/          # API calls
+├── types/             # TypeScript types/interfaces
+├── App.tsx            # Root component
+└── main.tsx           # Entry point
+```
+
+---
+
+## 📷 Screenshots
+
+> _(Add screenshots or a demo GIF here if you'd like)_
+
+---
+
+## 📌 License
+
+MIT
+
+---
+
+## 🤘 Made with ❤️ by [Rajeev Hegde](https://github.com/rajeevhegde)

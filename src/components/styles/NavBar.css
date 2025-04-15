@@ -1,0 +1,60 @@
+/* Navbar.css */
+
+/* Navbar Styles */
+.navbar {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .navbar {
+    background-color: #2a2a2a;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+body.dark-mode .navbar-brand {
+    color: #ffbf00;
+}
+
+body.dark-mode .navbar-brand:hover {
+    color: #fff;
+}
+
+/* Navbar menu items */
+.navbar-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+body.dark-mode .nav-link {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .nav-link:hover {
+    color: #ffbf00;
+}

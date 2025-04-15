@@ -1,16 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Add Router here
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import ThemeToggle from './components/ThemeToggle';
-import './app.css';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <header>
-        <ThemeToggle />
-      </header>
-      <Home />
-    </div>
+    <Router> {/* Wrap the entire app inside Router */}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Add routes for other pages */}
+      </Routes>
+    </Router>
   );
 };
 

@@ -116,3 +116,6 @@ body.dark-mode .modal-box::-webkit-scrollbar-track {
 body.dark-mode .close-button {
     color: #e0e0e0;
 }
+body.dark-mode .modal-body {
+    color: #e0e0e0;
+}

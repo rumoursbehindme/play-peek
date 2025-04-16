@@ -58,3 +58,45 @@ body.dark-mode .nav-link {
 body.dark-mode .nav-link:hover {
     color: #ffbf00;
 }
+.navbar-search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 36px;
+    border: 1px solid #ccc;
+}
+
+.navbar-search-input {
+    border: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: transparent;
+    color: #333;
+}
+
+.navbar-search-button {
+    background: none;
+    border: none;
+    padding: 0 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+body.dark-mode .navbar-search-form {
+    background-color: #444;
+    border: 1px solid #666;
+}
+
+body.dark-mode .navbar-search-input {
+    color: #f0f0f0;
+}
+
+body.dark-mode .navbar-search-button {
+    color: #f0f0f0;
+}

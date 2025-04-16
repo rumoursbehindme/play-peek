@@ -1,0 +1,33 @@
+.search-results-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.search-results-container h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Loading and empty state */
+.search-results-container p {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Dark mode */
+body.dark-mode .search-results-container h2 {
+    color: #f0f0f0;
+}
+
+body.dark-mode .search-results-container p {
+    color: #bbb;
+}

@@ -9,7 +9,12 @@ const GameCard: React.FC<{ game: IGame }> = ({ game }) => {
     return (
         <>
             <div className="card border-0 shadow-sm game-card">
-                <img src={game.background_image} className="card-img-top" alt={game.name} />
+                <img
+                    src={game.background_image || '/assets/svg/no-game-image.svg'}
+                    className="card-img-top"
+                    alt={game.name}
+                />
+
                 <div className="card-body">
                     <h5 className="card-title fw-semibold">{game.name}</h5>
                     <p className="card-text mb-1"><strong>Released:</strong> {game.released}</p>

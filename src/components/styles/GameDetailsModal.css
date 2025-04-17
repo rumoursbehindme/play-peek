@@ -54,14 +54,12 @@
 }
 
 .close-button {
-    z-index: 10000;
     font-size: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-    position: fixed;
-    right: 515px;
+
 }
 
 .close-button:hover {

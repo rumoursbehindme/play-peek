@@ -1,4 +1,5 @@
 import { IGame } from "../types/game";
+import { IGenre } from "../types/genre";
 
 const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 const BASE_URL = 'https://api.rawg.io/api';
@@ -12,11 +13,19 @@ export const fetchGames = async () => {
 export const fetchUpcomingGames = async (): Promise<IGame[]> => {
   const today = new Date().toISOString().split('T')[0];
   const nextYearEnd = new Date(new Date().getFullYear() + 1, 11, 31).toISOString().split('T')[0];
-
-  const res = await fetch(
-    `https://api.rawg.io/api/games?dates=${today},${nextYearEnd}&ordering=-added&page_size=20&key=${API_KEY}`
-  );
+  const res = await fetch(`${BASE_URL}/games?dates=${today},${nextYearEnd}&ordering=-added&page_size=20&key=${API_KEY}`);
   const data = await res.json();
   return data.results;
 };
 
+export const fetchGenres = async (): Promise<IGenre[]> => {
+  const res = await fetch(`${BASE_URL}/genres?key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};
+
+export const fetchGamesByGenre = async (genreId: number): Promise<IGame[]> => {
+  const res = await fetch(`${BASE_URL}/games?genres=${genreId}&key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};

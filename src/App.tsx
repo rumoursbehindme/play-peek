@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import UpcomingGames from './pages/UpcomingGames';
+import Genres from './pages/Genres';
 
 
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/upcoming" element={<UpcomingGames />} />
+        <Route path="/genres" element={<Genres />} />
         {/* Add routes for other pages */}
       </Routes>
     </Router>

@@ -11,7 +11,7 @@ const UpcomingGames: React.FC = () => {
     }, []);
 
     return (
-        <div className="container mt-4">
+        <div className="container-fluid mt-4">
             <h1 className="mb-4 text-center">Upcoming Games</h1>
             <div className="game-grid d-flex flex-wrap gap-4 justify-content-center">
                 {games.map((game) => (

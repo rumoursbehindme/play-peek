@@ -2,7 +2,7 @@ import React from "react";
 
 const SpinningLoader: React.FC = () => {
     return (
-        <div className="container">
+        <div className="d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
             <h1> Please Wait Content Loading</h1>
             <div className="spinner-border text-primary">
                 <span className="visually-hidden">Loading...</span>

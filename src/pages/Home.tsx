@@ -20,12 +20,7 @@ const Home: React.FC = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="container mt-4">
-
-        <SpinningLoader />
-      </div>
-    )
+    return <SpinningLoader />
   }
   return (
     <div className="container-fluid mt-4">

@@ -13,8 +13,8 @@ const UpcomingGames: React.FC = () => {
         setLoading(false);
     }, []);
 
-    if(loading){
-        return <SpinningLoader/>
+    if (loading) {
+        return <SpinningLoader />
     }
 
     return (

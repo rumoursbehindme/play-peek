@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { IGame } from '../types/game';
 import { fetchUpcomingGames } from '../services/api';
 import GameCard from '../components/GameCard';
+import SpinningLoader from '../components/SpinningLoader';
 
 const UpcomingGames: React.FC = () => {
     const [games, setGames] = useState<IGame[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchUpcomingGames().then(setGames);
+        setLoading(false);
     }, []);
+
+    if(loading){
+        return <SpinningLoader/>
+    }
 
     return (
         <div className="container-fluid mt-4">

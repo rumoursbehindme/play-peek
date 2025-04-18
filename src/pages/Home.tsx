@@ -17,7 +17,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       <TopGamesCarousel topGames={topGames} />
       <h1 className="mb-4 text-center">Game Details</h1>
       <div className="game-grid d-flex flex-wrap gap-4 justify-content-center">

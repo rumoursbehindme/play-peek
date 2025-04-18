@@ -48,7 +48,7 @@ const TopGamesCarousel: React.FC<Props> = ({ topGames }) => {
                             src={game.background_image || '/assets/svg/no-game-image.svg'}
                             className="d-block w-100 rounded"
                             alt={game.name}
-                            style={{ maxHeight: '450px', objectFit: 'cover' }}
+                            style={{ maxHeight: '500px', objectFit: 'cover' }}
                         />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
                             <h1>{`#${index + 1}`}</h1>

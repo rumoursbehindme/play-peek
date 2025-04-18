@@ -4,12 +4,14 @@ import axios from 'axios';
 import { IGame } from '../types/game';
 import GameCard from '../components/GameCard';
 import './styles/SearchResults.css';
+import SpinningLoader from '../components/SpinningLoader';
 
 const SearchResults: React.FC = () => {
     const location = useLocation();
     const query = new URLSearchParams(location.search).get('q') || '';
     const [games, setGames] = useState<IGame[]>([]);
     const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -33,7 +35,7 @@ const SearchResults: React.FC = () => {
         <div className="container mt-4">
             <h2>Search Results for: <em>{query}</em></h2>
             {loading ? (
-                <p>Loading...</p>
+                <SpinningLoader />
             ) : games.length === 0 ? (
                 <p>No results found.</p>
             ) : (

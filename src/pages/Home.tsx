@@ -3,19 +3,25 @@ import { fetchGames } from '../services/api';
 import GameCard from '../components/GameCard';
 import { IGame } from '../types/game';
 import TopGamesCarousel from '../components/TopGamesCarousel';
+import SpinningLoader from '../components/SpinningLoader';
 
 const Home: React.FC = () => {
   const [games, setGames] = useState<IGame[]>([]);
   const [topGames, setTopGames] = useState<IGame[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchGames().then((data) => {
       setGames(data);
       const sortedGamesByRatings = [...data].sort((a, b) => b.rating - a.rating);
-      setTopGames(sortedGamesByRatings.slice(0, 3))
+      setTopGames(sortedGamesByRatings.slice(0, 3));
+      setLoading(false);
     });
   }, []);
 
+  if (loading) {
+    return <SpinningLoader />
+  }
   return (
     <div className="container-fluid mt-4">
       <TopGamesCarousel topGames={topGames} />

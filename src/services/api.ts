@@ -1,5 +1,6 @@
 import { IGame } from "../types/game";
 import { IGenre } from "../types/genre";
+import { IPlatform } from "../types/platform";
 
 const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 const BASE_URL = 'https://api.rawg.io/api';
@@ -26,6 +27,18 @@ export const fetchGenres = async (): Promise<IGenre[]> => {
 
 export const fetchGamesByGenre = async (genreId: number): Promise<IGame[]> => {
   const res = await fetch(`${BASE_URL}/games?genres=${genreId}&key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};
+
+export const fetchPlatforms = async (): Promise<IPlatform[]> => {
+  const res = await fetch(`${BASE_URL}/platforms?key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};
+
+export const fetchGamesByPlatform = async (platformId: number): Promise<IGame[]> => {
+  const res = await fetch(`${BASE_URL}/games?platforms=${platformId}&key=${API_KEY}`);
   const data = await res.json();
   return data.results;
 };

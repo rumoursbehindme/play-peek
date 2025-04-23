@@ -30,8 +30,8 @@ Built with **React + TypeScript + Bootstrap + Vite** — no backend needed.
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/playpeek.git
-cd playpeek
+git clone https://github.com/rumoursbehindme/play-peek.git
+cd play-peek
 ```
 
 ### 2. Install dependencies
@@ -83,8 +83,8 @@ Game-Details-Modal
 
 ## 📌 License
 
-MIT
+[**MIT**](/LICENSE)
 
 ---
 
-## 🤘 Made with ❤️ by [Rajeev Hegde](https://github.com/rajeevhegde)
+## 🤘 Made with ❤️ by [Rajeev Hegde](https://github.com/rumoursbehindme)

@@ -9,8 +9,9 @@ const UpcomingGames: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchUpcomingGames().then(setGames);
-        setLoading(false);
+        fetchUpcomingGames()
+            .then(setGames)
+            .finally(() => setLoading(false));
     }, []);
 
     if (loading) {

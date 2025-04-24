@@ -42,3 +42,9 @@ export const fetchGamesByPlatform = async (platformId: number): Promise<IGame[]>
   const data = await res.json();
   return data.results;
 };
+
+export const fetchTopRatedGames = async (): Promise<IGame[]> => {
+  const res = await fetch(`${BASE_URL}/games?ordering=-rating&page_size=20&key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+}

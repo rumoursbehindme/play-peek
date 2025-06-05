@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Add Router here
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -12,7 +12,7 @@ import TopRatedGames from './pages/TopRatedGames';
 
 const App: React.FC = () => {
   return (
-    <Router> {/* Wrap the entire app inside Router */}
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +21,6 @@ const App: React.FC = () => {
         <Route path="/genres" element={<Genres />} />
         <Route path="platforms" element={<PlatformsPage />} />
         <Route path="/top-rated" element={<TopRatedGames />} />
-        {/* Add routes for other pages */}
       </Routes>
     </Router>
   );

@@ -16,7 +16,7 @@ const TopRatedGames: React.FC = () => {
     }, []);
 
     return (
-        <div className="container-fluid mt4">
+        <div className="container-fluid mt-4">
             <h1 className="mb-4 text-center">Top Rated Games</h1>
             {
                 loading ? (<SpinningLoader />)

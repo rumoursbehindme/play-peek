@@ -43,7 +43,7 @@ const PlatformsPage: React.FC = () => {
                 ))}
             </div>
 
-            {!selectedPlatform && <h1 className='text-center fw-semibold text-warning'> Please Choose any Patforms to Load The Games!</h1>}
+            {!selectedPlatform && <h1 className='text-center fw-semibold text-warning'> Please Choose any Platforms to Load The Games!</h1>}
             {loadingGames && <SpinningLoader />}
             {!loadingGames && selectedPlatform && (
                 <>

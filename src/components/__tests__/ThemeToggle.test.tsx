@@ -1,0 +1,26 @@
+/// <reference types="vitest" />
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import ThemeToggle from '../ThemeToggle';
+
+describe('ThemeToggle', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    document.body.className = '';
+  });
+
+  it('toggling checkbox updates body class and localStorage', async () => {
+    render(<ThemeToggle />);
+    const checkbox = screen.getByRole('checkbox');
+
+    // initial state should be dark mode
+    expect(checkbox).toBeChecked();
+    expect(document.body.classList.contains('dark-mode')).toBe(true);
+    expect(localStorage.getItem('theme')).toBe('dark');
+
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+    expect(document.body.classList.contains('dark-mode')).toBe(false);
+    expect(localStorage.getItem('theme')).toBe('light');
+  });
+});

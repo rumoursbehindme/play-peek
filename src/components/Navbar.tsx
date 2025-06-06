@@ -24,26 +24,29 @@ const Navbar: React.FC = () => {
                 <BSNavbar.Toggle aria-controls="basic-navbar-nav" />
                 <BSNavbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto navbar-links">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/genres">Genres</Nav.Link>
                         <Nav.Link as={Link} to="/platforms">Platforms</Nav.Link>
                         <Nav.Link as={Link} to="/top-rated">Top Rated</Nav.Link>
                         <Nav.Link as={Link} to="/upcoming">Upcoming</Nav.Link>
                     </Nav>
 
-                    <form onSubmit={handleSearchSubmit} className="navbar-search-form">
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Search games..."
-                            className="navbar-search-input"
-                        />
-                        <button type="submit" className="navbar-search-button" aria-label="Search">
-                            <FiSearch size={18} />
-                        </button>
-                    </form>
+                    <div className="navbar-tools d-flex align-items-center gap-2 mt-3 mt-lg-0 ms-lg-auto">
+                        <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Search games..."
+                                className="navbar-search-input"
+                            />
+                            <button type="submit" className="navbar-search-button" aria-label="Search">
+                                <FiSearch size={18} />
+                            </button>
+                        </form>
 
-                    <ThemeToggle />
+                        <ThemeToggle />
+                    </div>
                 </BSNavbar.Collapse>
             </Container>
         </BSNavbar>

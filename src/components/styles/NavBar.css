@@ -37,7 +37,14 @@ body.dark-mode .navbar-brand:hover {
 /* Navbar menu items */
 .navbar-links {
     display: flex;
+    align-items: center;
     gap: 1rem;
+}
+
+/* Container for search bar and theme toggle */
+.navbar-tools {
+    display: flex;
+    align-items: center;
 }
 
 .nav-link {
@@ -125,7 +132,16 @@ body.dark-mode .navbar-toggler {
 
     .navbar-links {
         flex-direction: column;
+        align-items: flex-start;
         gap: 0.5rem;
         margin-bottom: 0.5rem;
+    }
+
+    .navbar-tools {
+        width: 100%;
+    }
+
+    .navbar-search-form {
+        margin-left: 0;
     }
 }

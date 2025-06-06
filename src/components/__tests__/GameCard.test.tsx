@@ -49,4 +49,10 @@ describe('GameCard', () => {
     const img = screen.getByRole('img');
     expect(img).toHaveAttribute('alt', 'No image available for Game 1');
   });
+
+  it('renders correct number of star icons', () => {
+    render(<GameCard game={mockGame} />);
+    const stars = screen.getAllByTestId('star-icon');
+    expect(stars).toHaveLength(mockGame.rating);
+  });
 });

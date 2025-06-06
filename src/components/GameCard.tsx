@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IGame } from '../types/game';
 import './styles/GameCard.css';
 import GameDetailsModal from './GameDetailsModal';
+import { FaStar } from 'react-icons/fa';
 
 const GameCard: React.FC<{ game: IGame }> = ({ game }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +20,11 @@ const GameCard: React.FC<{ game: IGame }> = ({ game }) => {
                 <div className="card-body">
                     <h5 className="card-title fw-semibold">{game.name}</h5>
                     <p className="card-text mb-1"><strong>Released:</strong> {game.released}</p>
-                    <p className="card-text"><strong>Rating:</strong> {game.rating}</p>
+                    <div className="rating-stars">
+                        {Array.from({ length: Math.round(game.rating) }, (_, i) => (
+                            <FaStar data-testid="star-icon" key={i} className="rating-star" />
+                        ))}
+                    </div>
                     <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>Details</button>
                 </div>
             </div>

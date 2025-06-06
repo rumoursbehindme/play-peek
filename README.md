@@ -56,6 +56,13 @@ Get a free key from [RAWG.io](https://rawg.io/apidocs).
 yarn dev
 ```
 
+### 5. Run tests
+
+```bash
+yarn install
+yarn test
+```
+
 ---
 
 ## 📁 Folder Structure

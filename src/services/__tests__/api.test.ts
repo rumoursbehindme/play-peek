@@ -18,6 +18,7 @@ const loadApi = async () => {
 
 beforeEach(() => {
   fetchMock = vi.fn().mockResolvedValue({ json: vi.fn().mockResolvedValue(sampleResponse) });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).fetch = fetchMock;
 });
 

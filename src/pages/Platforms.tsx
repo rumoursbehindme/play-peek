@@ -11,18 +11,29 @@ const PlatformsPage: React.FC = () => {
     const [games, setGames] = useState<IGame[]>([]);
     const [loadingPlatforms, setLoadingPlatforms] = useState(true);
     const [loadingGames, setLoadingGames] = useState(false);
+    const [platformError, setPlatformError] = useState<string | null>(null);
+    const [gamesError, setGamesError] = useState<string | null>(null);
 
     useEffect(() => {
         fetchPlatforms()
             .then(setPlatforms)
+            .catch(err => {
+                console.error(err);
+                setPlatformError('Failed to fetch platforms.');
+            })
             .finally(() => setLoadingPlatforms(false));
     }, []);
 
     useEffect(() => {
         if (!selectedPlatform) return;
         setLoadingGames(true);
+        setGamesError(null);
         fetchGamesByPlatform(selectedPlatform.id)
             .then(setGames)
+            .catch(err => {
+                console.error(err);
+                setGamesError('Failed to fetch games.');
+            })
             .finally(() => setLoadingGames(false));
     }, [selectedPlatform]);
 
@@ -31,6 +42,7 @@ const PlatformsPage: React.FC = () => {
     return (
         <div className="container mt-4">
             <h1 className="mb-4 text-center">Browse by Platform</h1>
+            {platformError && <div className="alert alert-danger">{platformError}</div>}
             <div className="d-flex flex-wrap gap-2 justify-content-center mb-4">
                 {platforms.map((platform) => (
                     <button
@@ -45,6 +57,7 @@ const PlatformsPage: React.FC = () => {
 
             {!selectedPlatform && <h1 className='text-center fw-semibold text-warning'> Please Choose any Platforms to Load The Games!</h1>}
             {loadingGames && <SpinningLoader />}
+            {gamesError && <div className="alert alert-danger">{gamesError}</div>}
             {!loadingGames && selectedPlatform && (
                 <>
                     <h2 className="text-center mb-3">

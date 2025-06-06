@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import './styles/GameDetailsModal.css';
 import { IGame } from '../types/game';
 import { Badge, Card, ListGroup, Row, Col, ProgressBar } from 'react-bootstrap';
@@ -10,6 +11,8 @@ interface GameDetailsModalProps {
 
 const GameDetailsModal: React.FC<GameDetailsModalProps> = ({ game, closeModal }) => {
     const pcRequirements = game.platforms.find(p => p.platform.slug === 'pc')?.requirements_en;
+    const sanitizedMinimum = pcRequirements?.minimum ? DOMPurify.sanitize(pcRequirements.minimum) : '';
+    const sanitizedRecommended = pcRequirements?.recommended ? DOMPurify.sanitize(pcRequirements.recommended) : '';
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -62,13 +65,13 @@ const GameDetailsModal: React.FC<GameDetailsModalProps> = ({ game, closeModal })
                                         {pcRequirements.minimum && (
                                             <>
                                                 <h6>Minimum</h6>
-                                                <div dangerouslySetInnerHTML={{ __html: pcRequirements.minimum }} />
+                                                <div dangerouslySetInnerHTML={{ __html: sanitizedMinimum }} />
                                             </>
                                         )}
                                         {pcRequirements.recommended && (
                                             <>
                                                 <h6>Recommended</h6>
-                                                <div dangerouslySetInnerHTML={{ __html: pcRequirements.recommended }} />
+                                                <div dangerouslySetInnerHTML={{ __html: sanitizedRecommended }} />
                                             </>
                                         )}
                                     </Card.Body>

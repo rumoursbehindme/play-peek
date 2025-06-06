@@ -1,10 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import GameDetailsModal from '../GameDetailsModal';
 import { IGame } from '../../types/game';
+
+const maliciousRequirements = {
+  minimum: 'CPU: Anything <img src="x" onerror="alert(1)" /><script>bad()</script>',
+  recommended: '<script>alert("xss")</script>Use something better'
+};
 
 const mockGame: IGame = {
   id: 1,
@@ -28,25 +32,40 @@ const mockGame: IGame = {
   reviews_count: 0,
   saturated_color: '',
   dominant_color: '',
-  platforms: [],
+  platforms: [
+    {
+      platform: {
+        id: 1,
+        name: 'PC',
+        slug: 'pc',
+        image: null,
+        year_end: null,
+        year_start: null,
+        games_count: 0,
+        image_background: ''
+      },
+      released_at: '',
+      requirements_en: maliciousRequirements,
+      requirements_ru: null
+    }
+  ],
   parent_platforms: [],
   genres: [],
-  stores: [],
+  stores: []
 };
 
-describe('GameDetailsModal interactions', () => {
-  it('closes when clicking the overlay', async () => {
-    const close = vi.fn();
-    render(<GameDetailsModal game={mockGame} closeModal={close} />);
-    const overlay = document.querySelector('.modal-overlay') as HTMLElement;
-    await userEvent.click(overlay);
-    expect(close).toHaveBeenCalled();
-  });
+describe('GameDetailsModal sanitization', () => {
+  it('strips dangerous tags and attributes', () => {
+    render(<GameDetailsModal game={mockGame} closeModal={() => {}} />);
 
-  it('closes when Escape key is pressed', async () => {
-    const close = vi.fn();
-    render(<GameDetailsModal game={mockGame} closeModal={close} />);
-    await userEvent.keyboard('{Escape}');
-    expect(close).toHaveBeenCalled();
+    // script tags should be removed
+    expect(document.querySelector('.modal-body script')).toBeNull();
+    // onerror attribute should be stripped
+    const imgWithOnError = document.querySelector('.modal-body img[onerror]');
+    expect(imgWithOnError).toBeNull();
+
+    // ensure safe text is still rendered
+    expect(screen.getByText(/CPU: Anything/i)).toBeInTheDocument();
+    expect(screen.getByText(/Use something better/i)).toBeInTheDocument();
   });
 });

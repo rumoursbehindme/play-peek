@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <div className={`navbar-wrapper ${collapsed ? 'collapsed' : ''}`}> 
+        <div className={`navbar-wrapper ${collapsed ? 'collapsed' : ''}`}>
             <BSNavbar expand="lg" className="custom-navbar">
                 <Container>
                     <BSNavbar.Brand as={Link} to="/">PlayPeek</BSNavbar.Brand>
@@ -34,32 +34,32 @@ const Navbar: React.FC = () => {
                             <Nav.Link as={Link} to="/upcoming">Upcoming</Nav.Link>
                         </Nav>
 
-                    <div className="navbar-tools d-flex align-items-center gap-2 mt-3 mt-lg-0 ms-lg-auto">
-                        <form onSubmit={handleSearchSubmit} className="navbar-search-form">
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search games..."
-                                className="navbar-search-input"
-                            />
-                            <button type="submit" className="navbar-search-button" aria-label="Search">
-                                <FiSearch size={18} />
-                            </button>
-                        </form>
+                        <div className="navbar-tools d-flex align-items-center gap-2 mt-3 mt-lg-0 ms-lg-auto">
+                            <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+                                <input
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    placeholder="Search games..."
+                                    className="navbar-search-input"
+                                />
+                                <button type="submit" className="navbar-search-button" aria-label="Search">
+                                    <FiSearch size={18} />
+                                </button>
+                            </form>
 
-                        <ThemeToggle />
-                    </div>
-                </BSNavbar.Collapse>
+                            <ThemeToggle />
+                        </div>
+                        <button
+                            className="navbar-collapse-btn"
+                            onClick={() => setCollapsed((c) => !c)}
+                            aria-label={collapsed ? 'Expand menu' : 'Collapse menu'}
+                        >
+                            {collapsed ? <FiChevronDown /> : <FiChevronUp />}
+                        </button>
+                    </BSNavbar.Collapse>
                 </Container>
             </BSNavbar>
-            <button
-                className="navbar-collapse-btn"
-                onClick={() => setCollapsed((c) => !c)}
-                aria-label={collapsed ? 'Expand menu' : 'Collapse menu'}
-            >
-                {collapsed ? <FiChevronDown /> : <FiChevronUp />}
-            </button>
         </div>
     );
 };

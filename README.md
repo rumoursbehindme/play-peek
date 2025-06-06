@@ -59,7 +59,6 @@ yarn dev
 ### 5. Run tests
 
 ```bash
-yarn install
 yarn test
 ```
 

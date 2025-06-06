@@ -25,4 +25,10 @@ describe('ThemeToggle', () => {
     expect(document.body.classList.contains('dark-mode')).toBe(false);
     expect(localStorage.getItem('theme')).toBe('light');
   });
+
+  it('includes an aria-label for accessibility', () => {
+    render(<ThemeToggle />);
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toHaveAttribute('aria-label', 'Toggle dark mode');
+  });
 });

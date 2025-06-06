@@ -8,16 +8,22 @@ const TopRatedGames: React.FC = () => {
 
     const [games, setGames] = useState<IGame[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         fetchTopRatedGames()
             .then(setGames)
+            .catch(err => {
+                console.error(err);
+                setError('Failed to fetch games.');
+            })
             .finally(() => setLoading(false));
     }, []);
 
     return (
         <div className="container-fluid mt-4">
             <h1 className="mb-4 text-center">Top Rated Games</h1>
+            {error && <div className="alert alert-danger">{error}</div>}
             {
                 loading ? (<SpinningLoader />)
                     :

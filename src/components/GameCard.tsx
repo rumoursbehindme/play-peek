@@ -12,7 +12,8 @@ const GameCard: React.FC<{ game: IGame }> = ({ game }) => {
                 <img
                     src={game.background_image || '/assets/svg/no-game-image.svg'}
                     className="card-img-top"
-                    alt={game.name}
+                    alt={game.background_image ? game.name : `No image available for ${game.name}`}
+                    loading="lazy"
                 />
 
                 <div className="card-body">

@@ -25,7 +25,12 @@ const ThemeToggle: React.FC = () => {
 
     return (
         <label className="switch">
-            <input type="checkbox" checked={isDark} onChange={toggleTheme} />
+            <input
+                type="checkbox"
+                checked={isDark}
+                onChange={toggleTheme}
+                aria-label="Toggle dark mode"
+            />
             <span className="slider round">
                 <span className="icon-left">
                     <FaSun size={15} />

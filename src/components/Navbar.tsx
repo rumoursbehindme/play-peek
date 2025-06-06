@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
                     <BSNavbar.Brand as={Link} to="/">PlayPeek</BSNavbar.Brand>
                     <BSNavbar.Toggle aria-controls="basic-navbar-nav" />
                     <BSNavbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto navbar-links">
+                        <Nav className="mx-auto navbar-links justify-content-center">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/genres">Genres</Nav.Link>
                             <Nav.Link as={Link} to="/platforms">Platforms</Nav.Link>

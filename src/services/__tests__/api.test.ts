@@ -18,7 +18,7 @@ const loadApi = async () => {
 
 beforeEach(() => {
   fetchMock = vi.fn().mockResolvedValue({ json: vi.fn().mockResolvedValue(sampleResponse) });
-  global.fetch = fetchMock as any;
+  (global as any).fetch = fetchMock;
 });
 
 afterEach(() => {

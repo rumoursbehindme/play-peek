@@ -1,11 +1,49 @@
 /* Navbar.css */
 
 /* Navbar Styles */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
 .navbar {
     background-color: var(--navbar-bg, var(--surface-bg));
     padding: 1rem 2rem;
     border-bottom: 2px solid var(--border-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+
+.navbar-wrapper.collapsed .custom-navbar {
+    transform: translateY(-100%);
+}
+
+.navbar-collapse-btn {
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--navbar-bg, var(--surface-bg));
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navbar-wrapper.collapsed .navbar-collapse-btn {
+    bottom: -25px;
+}
+
+body.dark-mode .navbar-collapse-btn {
+    color: var(--primary-color);
+    background-color: var(--navbar-bg);
 }
 
 
@@ -63,6 +101,7 @@ body.dark-mode .nav-link {
 body.dark-mode .nav-link:hover {
     color: var(--primary-color);
 }
+
 .navbar-search-form {
     display: flex;
     align-items: center;

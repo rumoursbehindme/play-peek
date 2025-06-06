@@ -20,7 +20,7 @@
 body {
   font-family: var(--font-base);
   margin: 0;
-  padding: 0;
+  padding: 70px 0 0;
   background-color: var(--light-bg-color);
   color: var(--text-color-light);
   transition: background-color 0.3s ease, color 0.3s ease;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/GameDetailsModal.css';
 import { IGame } from '../types/game';
 import { Badge, Card, ListGroup, Row, Col, ProgressBar } from 'react-bootstrap';
@@ -11,8 +11,18 @@ interface GameDetailsModalProps {
 const GameDetailsModal: React.FC<GameDetailsModalProps> = ({ game, closeModal }) => {
     const pcRequirements = game.platforms.find(p => p.platform.slug === 'pc')?.requirements_en;
 
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [closeModal]);
+
     return (
-        <div className="modal-overlay">
+        <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && closeModal()}>
             <div className="modal-box">
                 <div className="modal-header">
                     <h5 className="modal-title">{game.name}</h5>

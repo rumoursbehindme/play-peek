@@ -40,9 +40,15 @@ cd play-peek
 yarn
 ```
 
-### 3. Add `.env` file
+### 3. Configure environment variables
 
-Create a `.env` file in the root:
+Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and set your RAWG API key:
 
 ```env
 VITE_RAWG_API_KEY=your_rawg_api_key_here

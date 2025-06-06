@@ -2,8 +2,8 @@
 
 /* Game Card Styles */
 .game-card {
-    background-color: #ffffff;
-    color: #333;
+    background-color: var(--surface-bg);
+    color: var(--text-color-light);
     border-radius: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -15,7 +15,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    background-color: #ffffff;
+    background-color: var(--surface-bg);
 }
 
 .game-card .card-body {
@@ -29,33 +29,33 @@
 
 /* Dark Mode Game Card */
 body.dark-mode .game-card {
-    background-color: #2a2a2a;
-    color: #f0f0f0;
+    background-color: var(--surface-bg);
+    color: var(--text-color-dark);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .game-card .card-body {
-    background-color: #333;
+    background-color: var(--surface-alt-bg);
 }
 
 /* Game Card Text */
 .game-card .card-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #333;
+    color: var(--text-color-light);
 }
 
 body.dark-mode .game-card .card-title {
-    color: #e0e0e0;
+    color: var(--text-color-dark);
 }
 
 .game-card .card-text {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-color-light);
 }
 
 body.dark-mode .game-card .card-text {
-    color: #bbb;
+    color: var(--text-color-dark);
 }
 
 /* Button Style */
@@ -72,9 +72,6 @@ body.dark-mode .game-card .card-text {
     border: none;
 }
 
-body.dark-mode .game-card .btn-primary {
-    background-color: #ffbf00;
-}
 
 .game-card .btn:hover {
     opacity: 0.8;

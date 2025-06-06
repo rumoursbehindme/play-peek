@@ -10,7 +10,7 @@
 }
 
 .modal-box {
-    background-color: #fff;
+    background-color: var(--surface-bg);
     border-radius: 20px;
     width: 90%;
     max-width: 900px;
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
@@ -96,12 +96,12 @@
 
 /* Dark Mode Support */
 body.dark-mode .modal-box {
-    background-color: #222;
-    color: #e0e0e0;
+    background-color: var(--surface-bg);
+    color: var(--text-color-dark);
 }
 
 body.dark-mode .modal-header {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-color);
 }
 
 body.dark-mode .modal-box::-webkit-scrollbar-thumb {
@@ -113,8 +113,8 @@ body.dark-mode .modal-box::-webkit-scrollbar-track {
 }
 
 body.dark-mode .close-button {
-    color: #e0e0e0;
+    color: var(--text-color-dark);
 }
 body.dark-mode .modal-body {
-    color: #e0e0e0;
+    color: var(--text-color-dark);
 }

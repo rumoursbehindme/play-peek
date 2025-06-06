@@ -33,6 +33,9 @@ describe('SearchResults', () => {
   it('displays error when fetch fails', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (axios.get as unknown as any).mockRejectedValue(new Error('fail'));
+    const consoleErrorMock = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
 
     render(
       <MemoryRouter initialEntries={["/search?q=test"]}>
@@ -42,5 +45,6 @@ describe('SearchResults', () => {
 
     const alert = await screen.findByText(/failed to fetch search results/i);
     expect(alert).toBeInTheDocument();
+    consoleErrorMock.mockRestore();
   });
 });

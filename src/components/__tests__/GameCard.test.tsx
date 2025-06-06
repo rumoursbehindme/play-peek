@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import GameCard from '../GameCard';
@@ -38,7 +38,10 @@ describe('GameCard', () => {
   it('opens modal when Details button is clicked', async () => {
     render(<GameCard game={mockGame} />);
     const btn = screen.getByRole('button', { name: /details/i });
-    await userEvent.click(btn);
+    const user = userEvent.setup();
+    await act(async () => {
+      await user.click(btn);
+    });
     // Modal should appear
     expect(screen.getByRole('button', { name: /×/i })).toBeInTheDocument();
   });

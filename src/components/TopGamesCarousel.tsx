@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { IGame } from '../types/game';
 import { Carousel } from 'bootstrap';
+import './styles/TopGamesCarousel.css';
 
 interface Props {
     topGames: IGame[];
@@ -50,7 +51,7 @@ const TopGamesCarousel: React.FC<Props> = ({ topGames }) => {
                             alt={game.name}
                             style={{ maxHeight: '500px', objectFit: 'cover' }}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+                        <div className="carousel-caption d-none d-md-block top-games-overlay rounded px-3 py-2">
                             <h1>{`#${index + 1}`}</h1>
                             <h5>{game.name}</h5>
                             <p>Rating: {game.rating} | Released: {game.released}</p>

@@ -76,3 +76,14 @@ body.dark-mode .game-card .card-text {
 .game-card .btn:hover {
     opacity: 0.8;
 }
+
+/* Rating stars */
+.rating-stars {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.rating-star {
+    color: #ffbf00;
+    margin-right: 4px;
+}

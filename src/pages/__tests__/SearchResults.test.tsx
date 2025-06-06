@@ -11,6 +11,7 @@ vi.mock('axios');
 describe('SearchResults', () => {
   beforeEach(() => {
     vi.resetAllMocks();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (axios.get as unknown as any).mockResolvedValue({ data: { results: [] } });
   });
 
@@ -27,5 +28,19 @@ describe('SearchResults', () => {
     const heading = await screen.findByText(/Search Results/i);
     expect(heading).toBeInTheDocument();
     expect(axios.get).toHaveBeenCalled();
+  });
+
+  it('displays error when fetch fails', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (axios.get as unknown as any).mockRejectedValue(new Error('fail'));
+
+    render(
+      <MemoryRouter initialEntries={["/search?q=test"]}>
+        <SearchResults />
+      </MemoryRouter>
+    );
+
+    const alert = await screen.findByText(/failed to fetch search results/i);
+    expect(alert).toBeInTheDocument();
   });
 });

@@ -11,20 +11,31 @@ const GenresPage: React.FC = () => {
     const [games, setGames] = useState<IGame[]>([]);
     const [gamesLoading, setGamesLoading] = useState(true);
     const [genreLoading, setGenreLoading] = useState(true);
+    const [genreError, setGenreError] = useState<string | null>(null);
+    const [gamesError, setGamesError] = useState<string | null>(null);
 
     useEffect(() => {
         setGenreLoading(true);
+        setGenreError(null);
         fetchGenres()
             .then(setGenres)
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err);
+                setGenreError('Failed to fetch genres.');
+            })
             .finally(() => setGenreLoading(false));
     }, []);
 
     useEffect(() => {
         if (!selectedGenre) return;
         setGamesLoading(true);
+        setGamesError(null);
         fetchGamesByGenre(selectedGenre.id)
             .then((data) => setGames(data))
+            .catch(err => {
+                console.error(err);
+                setGamesError('Failed to fetch games.');
+            })
             .finally(() => setGamesLoading(false));
     }, [selectedGenre]);
 
@@ -34,6 +45,7 @@ const GenresPage: React.FC = () => {
     return (
         <div className="container mt-4">
             <h1 className="mb-4 text-center">Browse by Genre</h1>
+            {genreError && <div className="alert alert-danger">{genreError}</div>}
             <div className="d-flex flex-wrap gap-2 justify-content-center mb-4">
                 {genres.map((g) => (
                     <button
@@ -48,6 +60,7 @@ const GenresPage: React.FC = () => {
             </div>
 
             {selectedGenre && gamesLoading && <SpinningLoader />}
+            {gamesError && <div className="alert alert-danger">{gamesError}</div>}
             {!selectedGenre && (<p className="text-center"> Please select a genre above to see its games. </p>)}
             {!gamesLoading && selectedGenre && (
                 <div className="container-fluid mt-4">

@@ -2,10 +2,10 @@
 
 /* Root variables for dark mode and font family */
 :root {
-  --font-base: 'Poppins', sans-serif;
-  --primary-color: #007bff;
-  --dark-bg-color: #121212;
-  --light-bg-color: #f9f9f9;
+  --font-base: 'Inter', sans-serif;
+  --primary-color: #ff5722;
+  --dark-bg-color: #1a1a1a;
+  --light-bg-color: #fafafa;
   --text-color-light: #222;
   --text-color-dark: #eee;
   --surface-bg: #fff;
@@ -30,7 +30,7 @@ body {
 body.dark-mode {
   background-color: var(--dark-bg-color);
   color: var(--text-color-dark);
-  --primary-color: #ffbf00;
+  --primary-color: #ff7043;
   --surface-bg: #2a2a2a;
   --surface-alt-bg: #333;
   --border-color: #666;

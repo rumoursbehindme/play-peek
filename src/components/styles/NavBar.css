@@ -5,7 +5,23 @@
     background-color: var(--navbar-bg, var(--surface-bg));
     padding: 1rem 2rem;
     border-bottom: 2px solid var(--border-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar-collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+body.dark-mode .navbar-collapse-btn {
+    color: var(--text-color-dark);
 }
 
 

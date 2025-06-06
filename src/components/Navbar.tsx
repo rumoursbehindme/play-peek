@@ -7,7 +7,9 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
+
 
     const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -18,9 +20,16 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <BSNavbar expand="lg" className="custom-navbar">
+        <BSNavbar fixed="top" expand="lg" className={`custom-navbar ${collapsed ? 'navbar-hidden' : ''}` }>
             <Container>
                 <BSNavbar.Brand as={Link} to="/">PlayPeek</BSNavbar.Brand>
+                <button
+                    className="navbar-collapse-btn ms-2"
+                    onClick={() => setCollapsed((c) => !c)}
+                    aria-label={collapsed ? 'Expand menu' : 'Collapse menu'}
+                >
+                    {collapsed ? 'Expand' : 'Collapse'}
+                </button>
                 <BSNavbar.Toggle aria-controls="basic-navbar-nav" />
                 <BSNavbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto navbar-links">

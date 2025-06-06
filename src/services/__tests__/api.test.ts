@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
+/// <reference types="node" />
+
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const API_KEY = 'test-key';
@@ -16,7 +18,7 @@ const loadApi = async () => {
 
 beforeEach(() => {
   fetchMock = vi.fn().mockResolvedValue({ json: vi.fn().mockResolvedValue(sampleResponse) });
-  global.fetch = fetchMock as any;
+  (global as any).fetch = fetchMock;
 });
 
 afterEach(() => {

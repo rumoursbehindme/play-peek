@@ -17,7 +17,14 @@ const loadApi = async () => {
 };
 
 beforeEach(() => {
-  fetchMock = vi.fn().mockResolvedValue({ json: vi.fn().mockResolvedValue(sampleResponse) });
+  fetchMock = vi
+    .fn()
+    .mockResolvedValue({
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      json: vi.fn().mockResolvedValue(sampleResponse),
+    });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).fetch = fetchMock;
 });
@@ -81,5 +88,16 @@ describe('api services', () => {
     fetchMock.mockRejectedValue(new Error('fail'));
     const { fetchGames } = await loadApi();
     await expect(fetchGames()).rejects.toThrow('fail');
+  });
+
+  it('throws when response not ok', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: false,
+      status: 500,
+      statusText: 'Server Error',
+      json: vi.fn(),
+    });
+    const { fetchGames } = await loadApi();
+    await expect(fetchGames()).rejects.toThrow('Error 500: Server Error');
   });
 });

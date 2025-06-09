@@ -68,6 +68,12 @@ yarn dev
 yarn test
 ```
 
+For automated or CI environments, run the tests once without watch mode:
+
+```bash
+yarn test:ci
+```
+
 ---
 
 ## 📁 Folder Structure
